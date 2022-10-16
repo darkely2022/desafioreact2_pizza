@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import Navbar from './layout/Navbar';
+import Header from './layout/Header';
+import Home from './pages/Home';
+import VerPizza from "./pages/VerPizza";
+import Carrito from "./pages/Carrito";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
+import Context from "./context/context";
 
 function App() {
+  const [listadocompra, setCompra] = useState([]);
+  const globalState = { listadocompra, setCompra };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Context.Provider value={ globalState }>
+        <BrowserRouter>
+          <Navbar />
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/pizza/:id" element={<VerPizza />} />
+            <Route path="/carrito" element={<Carrito />} />
+          </Routes>
+        </BrowserRouter>
+      </Context.Provider>
+    </>
   );
 }
 
