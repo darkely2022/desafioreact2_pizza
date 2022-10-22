@@ -82,3 +82,27 @@ code {
   background-color: rgb(230, 224, 224);
   text-align: center;
 }
+.carrito_det{
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+  background-color: white;
+}
+.carrito_img{
+  width: 5%;
+  height: 5%;
+}
+
+.ingredientes{
+  display: flex;
+  flex-direction: row;
+  
+}
+.img_pizzas{
+  width: 10%;
+  height: 10%;
+}
+.img_pizzas2{
+  width: 5%;
+  height: 5%;
+}

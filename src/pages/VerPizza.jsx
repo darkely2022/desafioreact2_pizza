@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { Button } from 'react-bootstrap';
+import Imagenpizza from '../assets/imgs/pizza.png';
 
 const VerPizza = () => {
     const endpoint = "/pizzas.json";
@@ -31,8 +32,18 @@ const VerPizza = () => {
                         </div>
                         <div className="texto">
                             <h2>{pizza.name}</h2>
-                            <h5>{pizza.desc}</h5>
+                            <h6>{pizza.desc}</h6>
                             <h5>Ingredientes</h5>
+                            {pizza.ingredients.map((ingredients)=>(
+                                        <>
+                                        <div className="ingredientes">
+                                         <img className="img_pizzas2" src={Imagenpizza}></img>
+                                        <h6 className="text-muted">{ingredients}</h6>
+                                        </div>
+                                        </>
+                                    )
+                                     )}
+                             <h4>Precio $ {pizza.price}</h4>      
                             <Button variant="danger" >Añadir</Button>
                         </div>
                     </>
